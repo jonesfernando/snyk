@@ -25,4 +25,4 @@ jobs:
           sarif-file: snyk.sarif
           title: "Security scanning results"
           labels: security
-          odc-sarif: false
+          odc-sarif: true
