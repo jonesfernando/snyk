@@ -16,3 +16,13 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: snyk.sarif
+      - name: Upload Sarif to GitHub Issues
+        uses: sett-and-hive/sarif-to-issue-action@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: ${{ github.repository }}
+          branch: ${{ github.head_ref }}
+          sarif-file: snyk.sarif
+          title: "Security scanning results"
+          labels: security
+          odc-sarif: false
